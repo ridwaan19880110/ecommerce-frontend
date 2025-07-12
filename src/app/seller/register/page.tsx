@@ -45,8 +45,12 @@ export default function RegisterPage() {
 
       setMessage(`✅ Registered: ${data.seller.company_name}`);
       setTimeout(() => router.push('https://universalapex.co.za/'), 2000);
-    } catch (err: any) {
-      setMessage(`❌ ${err.message}`);
+    } catch (err) {
+      if (err instanceof Error) {
+        setMessage(`❌ ${err.message}`);
+      } else {
+        setMessage('❌ Unknown error occurred');
+      }
     }
   };
 
