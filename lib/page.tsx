@@ -4,12 +4,18 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
+interface Seller {
+  company_name: string;
+  contact_person: string;
+  email: string;
+}
+
 export default function SellerDashboard() {
-  const [seller, setSeller] = useState<any>(null);
+  const [seller, setSeller] = useState<Seller | null>(null);
 
   useEffect(() => {
     // TODO: Replace with real auth/session check later
-    const mockSeller = {
+    const mockSeller: Seller = {
       company_name: 'Joelines Enterprise',
       contact_person: 'Joeline',
       email: 'aboobakerjoeline@gmail.com',
